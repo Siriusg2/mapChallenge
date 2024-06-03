@@ -22,7 +22,7 @@ You will need to:
 
     -Once you complete the challenge, please name the last commit "final commit"
 
-     -You have 36 hours to make this challenge from the moment you are granted access to this repository. Don't worry if you cant't finish it, the final result isn't the only criteria to evalute you, we want to see your  performance in other aspects related with software development
+     -You have 48 hours to make this challenge from the moment you are granted access to this repository. Don't worry if you cant't finish it, the final result isn't the only criteria to evalute you, we want to see your  performance in other aspects related with software development
 
 ## Hints
 
