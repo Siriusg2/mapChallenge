@@ -1,9 +1,6 @@
-interface Position {
-  lat: string;
-  lng: string;
-}
+import { IPosition } from "@/interfaces/position";
 
-const positionsData: Position[] = [
+export const positionsData: IPosition[] = [
   {
     lat: "-32.397165",
     lng: "-64.243423",
