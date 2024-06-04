@@ -13,17 +13,21 @@ import { useEffect, useState } from 'react';
 const Map = () =>{
 
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [currentLocation, setCurrentLocation] = useState(positionsData[currentIndex]);
+
 
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentIndex(prevIndex => (prevIndex + 1) % positionsData.length);
+            console.log( parseFloat(positionsData[currentIndex].lat));
         }, 1000);
 
         return () => clearInterval(interval); 
     }, []);
 
-    const currentLocation = positionsData[currentIndex];
-    const position = [parseFloat(currentLocation.lat), parseFloat(currentLocation.lng)];
+    useEffect(() => {
+        setCurrentLocation(positionsData[currentIndex]);
+    }, [currentIndex]);
 
     const iconMarkup = ReactDOMServer.renderToString(<PiDogBold size={25} color="brown" />);
     const iconUrl = `data:image/svg+xml;base64,${btoa(iconMarkup)}`;
@@ -35,7 +39,10 @@ const Map = () =>{
                 height: '100vh',
                 width: '100vw',
             }}
-            center={position}
+            center={[
+                    parseFloat(positionsData[currentIndex].lat),
+                    parseFloat(positionsData[currentIndex].lng)
+                ]}
               zoom={13}
               scrollWheelZoom={false}
             >
@@ -45,7 +52,10 @@ const Map = () =>{
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
                     <Marker 
-                        position={position} 
+                        position={[
+                    parseFloat(positionsData[currentIndex].lat),
+                    parseFloat(positionsData[currentIndex].lng)
+                ]} 
                         icon={
                             new L.Icon({
                                 iconUrl: iconUrl,
