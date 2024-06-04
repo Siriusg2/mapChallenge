@@ -1,9 +1,9 @@
-interface Position {
+export interface Position {
   lat: string;
   lng: string;
 }
 
-const positionsData: Position[] = [
+ export const positionsData: Position[] = [
   {
     lat: "-32.397165",
     lng: "-64.243423",

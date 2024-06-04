@@ -7,11 +7,27 @@ import  MarkerShadow from '../node_modules/leaflet/dist/images/marker-shadow.png
 import 'leaflet/dist/leaflet.css'
 import { PiDogBold } from "react-icons/pi";
 import ReactDOMServer from 'react-dom/server';
-
+import {positionsData} from '../../assets/positionsData'
+import { useEffect, useState } from 'react';
 
 const Map = () =>{
+
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentIndex(prevIndex => (prevIndex + 1) % positionsData.length);
+        }, 1000);
+
+        return () => clearInterval(interval); 
+    }, []);
+
+    const currentLocation = positionsData[currentIndex];
+    const position = [parseFloat(currentLocation.lat), parseFloat(currentLocation.lng)];
+
     const iconMarkup = ReactDOMServer.renderToString(<PiDogBold size={25} color="brown" />);
     const iconUrl = `data:image/svg+xml;base64,${btoa(iconMarkup)}`;
+
     return(
         <div>
             <MapContainer
@@ -19,10 +35,7 @@ const Map = () =>{
                 height: '100vh',
                 width: '100vw',
             }}
-            center={[
-                -31.50546370519001,
-                -68.48892847612524,
-              ]}
+            center={position}
               zoom={13}
               scrollWheelZoom={false}
             >
@@ -31,27 +44,23 @@ const Map = () =>{
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-            <Marker position={[
-                -31.50546370519001,
-                -68.48892847612524,
-              ]} 
-              icon={
-                new L.Icon({
-                    iconUrl: iconUrl,
-                    iconRetinaUrl: iconUrl,
-                    iconSize: [25,41],
-                    iconArchor: [12.5,41],
-                    popupAnchor: [0,-41],
-                    shadowUrl: MarkerShadow.src,
-                    shadowSize: [41,41],
-                })
-              }
-              
-              >
-                <Popup>
-                    aca estoy
-                </Popup>
-            </Marker>
+                    <Marker 
+                        position={position} 
+                        icon={
+                            new L.Icon({
+                                iconUrl: iconUrl,
+                                iconRetinaUrl: iconUrl,
+                                iconSize: [25,41],
+                                iconAnchor: [12.5,41],
+                                popupAnchor: [0,-41],
+                                shadowSize: [41,41],
+                            })
+                          }
+                    >
+                        <Popup>
+                            Aca estoy
+                        </Popup>
+                    </Marker>
             </MapContainer>
         </div>
     )
