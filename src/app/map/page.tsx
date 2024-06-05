@@ -55,14 +55,16 @@ const TrackingMap = () => {
       >
         <MyComponent />
         <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          // attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <Marker
           zIndexOffset={99}
           position={[latitude, longitude]}
           icon={dogIcon}
-        />
+        >
+          <Popup>WOOF !</Popup>
+        </Marker>
       </MapContainer>
     </div>
   );

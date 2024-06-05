@@ -4,9 +4,7 @@ import Button from "../components/Button";
 import { useRouter } from "next/navigation";
 import { HiChevronLeft } from "react-icons/hi2";
 
-type Props = {};
-
-const NavBar = (props: Props) => {
+const NavBar = () => {
   const router = useRouter();
   return (
     <div className=" flex bg-primary px-2 py-1 items-center">

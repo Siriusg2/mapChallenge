@@ -7,6 +7,7 @@ const UseCoordinates = (): [IPosition] => {
     lat: "0",
     lng: "0",
   });
+  // Index 84 chosen as starting point for an enhanced demo experience
   const index: MutableRefObject<number> = useRef(84);
   const mapRefreshTime: number = 1000;
 
