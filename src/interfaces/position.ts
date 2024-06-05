@@ -3,3 +3,6 @@ export interface IPosition {
     lng: string
 }
 
+export interface IPositionIndexed extends IPosition {
+    index: number
+}

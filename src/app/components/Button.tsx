@@ -1,8 +1,8 @@
 import React from "react";
 
 type ButtonProps = {
-  size: "small" | "medium" | "large"
-  click: () => void
+  size?: "small" | "medium" | "large"
+  click: () => any
   label: string
 };
 

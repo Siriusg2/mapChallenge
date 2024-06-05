@@ -1,32 +1,43 @@
-import React, { useEffect, useState } from "react";
+import React, { MutableRefObject, useEffect, useRef, useState } from "react";
 import { IPosition } from "@/interfaces/position";
 import { getRealTimeCoordinates } from "@/services/getRealTimeCoordinates";
 
-type Props = {};
-
-const UseCoordinates = () => {
+const UseCoordinates = (): [IPosition] => {
   const [currentCoords, setCurrentCoords] = useState<IPosition>({
-    lat: '0',
-    lng: '0',
+    lat: "0",
+    lng: "0",
   });
-  const [index, setIndex] = useState(0);
+  const index: MutableRefObject<number> = useRef(0);
+  const mapRefreshTime: number = 1000;
+  // const fetchDataIntervalId = useRef<NodeJS.Timer>();
+  // console.log("render");
 
-  const fetchData = async (): Promise<void> => {
-    try {
-      const coordinates: IPosition = await getRealTimeCoordinates(index);
-      setCurrentCoords(coordinates)
-      setIndex(prev => prev + 1)
-    } catch (error) {
-      console.error("Error al obtener las coordenadas en tiempo real:", error)
-      // Manejar el error aquí si es necesario
+  const fetchData = () => {
+    // console.log("fetch");
+    const { position, dataLength } = getRealTimeCoordinates(index.current);
+    if (index.current < dataLength) {
+      // console.log("index", index);
+      index.current = ++index.current;
+      setCurrentCoords(position);
+      // console.log("new index", index);
+      // console.log(position);
+    } else {
+      index.current = 0;
+      alert("reset!");
     }
+    return position;
   };
 
   useEffect(() => {
-    fetchData()
-  }, [currentCoords])
+    const fetchCoordsInterval = setInterval(() => {
+      fetchData();
+    }, mapRefreshTime);
+    return () => {
+      clearInterval(fetchCoordsInterval);
+    };
+  }, []);
 
   return [currentCoords];
 };
 
-export default UseCoordinates
+export default UseCoordinates;
