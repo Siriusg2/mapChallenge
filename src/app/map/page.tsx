@@ -28,20 +28,21 @@ const TrackingMap = () => {
     >
       <div className=" w-[40%] max-w-[300px] sm:max-w-none sm:w-screen bg-background">
         <Title
-          className="uppercase text-foreground px-5 pt-2 pb-8 mb-2 bg-secondary text-center"
+          className="uppercase text-foreground px-5 pt-2 pb-8 mb-2 bg-secondary text-center
+          sm:pb-2"
           label="Tracking Map"
         />
         <div
-          className="flex flex-col
-        sm:flex-row sm:justify-center"
+          className="flex flex-col px-5
+        sm:flex-row sm:justify-around sm:py-2"
         >
-          <div className="flex sm:flex-col">
-            <TextLine className="text-foreground mx-2">Latitude:</TextLine>
-            <TextLine className="text-foreground mx-2">{latitude}</TextLine>
+          <div className="flex sm:flex-col text-center flex-1">
+            <TextLine className="text-foreground">Latitude:</TextLine>
+            <TextLine className="text-foreground">{latitude}</TextLine>
           </div>
-          <div className="flex sm:flex-col">
-            <TextLine className="text-foreground mx-2">Longitude:</TextLine>
-            <TextLine className="text-foreground mx-2">{longitude}</TextLine>
+          <div className="flex sm:flex-col text-center flex-1">
+            <TextLine className="text-foreground">Longitude:</TextLine>
+            <TextLine className="text-foreground">{longitude}</TextLine>
           </div>
         </div>
       </div>

@@ -7,23 +7,17 @@ const UseCoordinates = (): [IPosition] => {
     lat: "0",
     lng: "0",
   });
-  const index: MutableRefObject<number> = useRef(0);
+  const index: MutableRefObject<number> = useRef(84);
   const mapRefreshTime: number = 1000;
-  // const fetchDataIntervalId = useRef<NodeJS.Timer>();
-  // console.log("render");
 
   const fetchData = () => {
-    // console.log("fetch");
     const { position, dataLength } = getRealTimeCoordinates(index.current);
     if (index.current < dataLength) {
-      // console.log("index", index);
       index.current = ++index.current;
       setCurrentCoords(position);
-      // console.log("new index", index);
-      // console.log(position);
     } else {
       index.current = 0;
-      alert("reset!");
+      console.log("reset!");
     }
     return position;
   };
