@@ -91,8 +91,8 @@ function App() {
       <header>
         <div>
           <p>Posicion del array: {contador}</p>
-          <p>Latitud: {coordenada.lat}</p>
-          <p>Longitud: {coordenada.lng}</p>
+          <p>Latitud:   {coordenada.lat}</p>
+          <p>Longitud:   {coordenada.lng}</p>
         </div>
         <button className={!disable ? "button" : "button-disable"} onClick={() => handleClick()} disabled={disable}>
           Reset
