@@ -11,18 +11,31 @@ const config: Config = {
       colors: {
         primary: {
           DEFAULT: '#1dbd8d',
-          400: '',
-          800: ''
+          800: '',
+          400: ''
         },
         secondary: {
-          DEFAULT: '#01c2f4',
-          400: '#ffed49',
-          800: ''
+          DEFAULT: '#1c819c',
+          800: '#ffed49',
+          400: ''
         },
         background: '#1b2330',
         foreground: '#D4DEE0'
       }
     },
+    screens: {
+			xl: { max: "1279px" },
+			// => @media (max-width: 1279px) { ... }
+
+			lg: { max: "1023px" },
+			// => @media (max-width: 1023px) { ... }
+
+			md: { max: "767px" },
+			// => @media (max-width: 767px) { ... }
+
+			sm: { max: "430px" },
+			// => @media (max-width: 639px) { ... }
+		},
   },
   plugins: [],
 };

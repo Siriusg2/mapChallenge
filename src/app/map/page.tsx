@@ -22,11 +22,28 @@ const TrackingMap = () => {
   }
 
   return (
-    <div className="flex grow">
-      <div className=" w-[40%] max-w-[300px] p-5 bg-background">
-        <Title className="uppercase text-foreground mt-2 mb-10" label="Tracking Map" />
-        <TextLine className="text-foreground">Latitude: {latitude}</TextLine>
-        <TextLine className="text-foreground">Longitude: {longitude}</TextLine>
+    <div
+      className="flex grow 
+    sm:flex-col"
+    >
+      <div className=" w-[40%] max-w-[300px] sm:max-w-none sm:w-screen bg-background">
+        <Title
+          className="uppercase text-foreground px-5 pt-2 pb-8 mb-2 bg-secondary text-center"
+          label="Tracking Map"
+        />
+        <div
+          className="flex flex-col
+        sm:flex-row sm:justify-center"
+        >
+          <div className="flex sm:flex-col">
+            <TextLine className="text-foreground mx-2">Latitude:</TextLine>
+            <TextLine className="text-foreground mx-2">{latitude}</TextLine>
+          </div>
+          <div className="flex sm:flex-col">
+            <TextLine className="text-foreground mx-2">Longitude:</TextLine>
+            <TextLine className="text-foreground mx-2">{longitude}</TextLine>
+          </div>
+        </div>
       </div>
       <MapContainer
         id="map"
@@ -48,7 +65,6 @@ const TrackingMap = () => {
       </MapContainer>
     </div>
   );
-}
+};
 
-
-export default TrackingMap
+export default TrackingMap;
