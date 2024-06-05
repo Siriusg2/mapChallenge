@@ -1,14 +1,11 @@
 export {}
 
-
 interface Position {
   lat: string;
   lng: string;
 }
 
-export default function coordinates() {
-  
-const positionsData: Position[] = [
+export const positionsData: Position[] = [
   {
     lat: "-32.397165",
     lng: "-64.243423",
@@ -610,7 +607,3 @@ const positionsData: Position[] = [
     lng: "-64.23945680000017",
   },
 ];
-
-
-return positionsData
-} 
