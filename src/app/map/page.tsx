@@ -3,7 +3,7 @@ import Title from "@/app/components/Title";
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import UseCoordinates from "@/hooks/useCoordinates";
-import { dogIcon, check } from "@/app/map/icons";
+import { dogIcon, check } from "@/app/icons/icons";
 import L from "leaflet";
 import TextLine from "../components/TextLine";
 
