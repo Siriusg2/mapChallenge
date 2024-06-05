@@ -15,12 +15,12 @@ const config: Config = {
           800: ''
         },
         secondary: {
-          DEFAULT: '',
-          400: '',
+          DEFAULT: '#01c2f4',
+          400: '#ffed49',
           800: ''
         },
         background: '#1b2330',
-        foreground: '#e6f0f3'
+        foreground: '#D4DEE0'
       }
     },
   },

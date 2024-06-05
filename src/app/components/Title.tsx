@@ -1,13 +1,14 @@
 type TitleProps = {
   label: string;
-  className?: string; // Optional string prop for class name
-  // ...other props you might need
+  className?: string;
+  superHuge?: boolean
+
 };
 
-const Title = ({ label, className, ...rest }: TitleProps) => {
+const Title = ({ label, className,superHuge, ...rest }: TitleProps) => {
   return (
     <h1
-      className={`text-2xl font-semibold tracking-wider ${className || ""}`}
+      className={`text-2xl font-semibold tracking-wider ${superHuge && 'text-4xl'} ${className || ""}`}
       {...rest}
     >
       {label}

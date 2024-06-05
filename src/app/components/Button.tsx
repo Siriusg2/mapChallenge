@@ -4,12 +4,14 @@ type ButtonProps = {
   size?: "small" | "medium" | "large"
   click: () => any
   label: string
+  className?: string
 };
 
 const Button = ({
   size = "medium",
   click,
   label,
+  className
 }: ButtonProps) => {
   const sizeClasses = {
     small: "py-1 px-3 text-sm",
@@ -19,7 +21,7 @@ const Button = ({
 
   return (
     <button
-      className={`${sizeClasses[size]} bg-green-800 text-yellow-300 font-semibold uppercase tracking-wider rounded-md`} onClick={click}
+      className={`${sizeClasses[size]} bg-secondary text-zinc-800 font-semibold uppercase tracking-wider rounded-md ${className || ""}`} onClick={click}
     >
       {label}
     </button>

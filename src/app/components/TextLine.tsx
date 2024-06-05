@@ -1,7 +1,6 @@
 type TitleProps = {
   children: React.ReactNode;
-  className?: string; // Optional string prop for class name
-  // ...other props you might need
+  className?: string
 };
 
 const TextLine = ({ children, className, ...rest }: TitleProps) => {

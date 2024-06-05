@@ -6,9 +6,8 @@ export default function MapLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <body className="h-screen flex flex-col">
-      
+    <div className="h-screen flex flex-col">
       {children}
-    </body>
+    </div>
   );
 }
